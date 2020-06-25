@@ -29,10 +29,15 @@ let Shrek = {
 };
 
 let gamete1 = new Object();
-gamete1.name = "Slob";
-gamete1.allele = "Aa";
-
 let gamete2 = new Object();
+let gamete3 = new Object();
+let gamete4 = new Object();
+let gamete5 = new Object();
+let gamete6 = new Object();
+let genePool = [gamete1, gamete2, gamete3, gamete4, gamete5, gamete6];
 
 function makeSim(sim1, sim2){
+    for(let i = 0; i++; i<6){
+        
+    }
 };
