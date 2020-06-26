@@ -25,26 +25,54 @@ let Shrek = {
 };
 
 
-
-let gamete1 = new Object();
-let gamete2 = new Object();
-let gamete3 = new Object();
-let gamete4 = new Object();
-let gamete5 = new Object();
-let gamete6 = new Object();
+let options = [];
 let genePool =[];
-
+let optionArray = [];
 
 function makeSim(sim1, sim2){
-    for(let i = 0; i<3; i++){
-        for(let j = 0; j<3; j++){
-            if(sim1.traitList[i].phenotype === sim2.traitList[j].phenotype){
-                genePool[i] = getGamete(sim1.traitList[i]);
-                break;
+    options = [{name: "Athletic", probability: 20}, {name: "Ambitious", probability: 20}, 
+{name: "Cheerful", probability: 20}, {name: "Loner", probability: 20},
+{name : "Music Lover", probability : 20}, {name: "Self-Assured", probability : 20},
+{name: "Slob", probability : 20}];
+    genePool = [];
+    let offspring = {
+        traitList: []
+    };
+    let offspringTraits = new Set();
+
+    for(let i =0;i<3;i++){
+        genePool.push(getGamete(sim1.traitList[i]));
+    }
+    for(let i =0;i<3;i++){
+        genePool.push(getGamete(sim2.traitList[i]));
+    }
+    for(let i =0; i<genePool.length; i++){
+        for(let j =0; j<options.length;j++)
+        {
+            if(genePool[i].name===options[j].name && genePool[i].allele==="A"){
+                options[j].probability+=2;
             }
-            console.log(`no match ${i} ${j}`); 
+            if(genePool[i].name===options[j].name && genePool[i].allele==="a"){
+                options[j].probability++;
+            }
+            if(genePool[i].name!==options[j].name && genePool[i].allele==="A"){
+                options[j].probability-=2;
+            }
+            if(genePool[i].name!==options[j].name && genePool[i].allele==="a"){
+                options[j].probability--;
+            }
         }
     }
+
+    for(let i = 0; i<options.length; i++){
+        for(let j=0; j<options[i].probability; j++)
+            optionArray.push(options[i].name);
+    }
+    while(offspringTraits.size<3)
+        offspringTraits.add(optionArray[Math.floor(Math.random()*optionArray.length)]);
+
+    offspring.traitList = Array.from(offspringTraits);
+    return offspring;
 };
 
 function getGamete(trait){
