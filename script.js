@@ -32,15 +32,19 @@ let gamete3 = new Object();
 let gamete4 = new Object();
 let gamete5 = new Object();
 let gamete6 = new Object();
-let genePool = [gamete1, gamete2, gamete3, gamete4, gamete5, gamete6];
+let genePool =[];
 
 
 function makeSim(sim1, sim2){
     for(let i = 0; i<3; i++){
         for(let j = 0; j<3; j++){
-            if(sim1.traitList[i].phenotype === sim2.traitList[j].phenotype)
-               console.log("match");}
+            if(sim1.traitList[i].phenotype === sim2.traitList[j].phenotype){
+                genePool[i] = getGamete(sim1.traitList[i]);
+                break;
             }
+            console.log(`no match ${i} ${j}`); 
+        }
+    }
 };
 
 function getGamete(trait){
