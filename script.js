@@ -35,8 +35,20 @@ function makeSim(sim1, sim2){
 {name : "Music Lover", probability : 20}, {name: "Self-Assured", probability : 20},
 {name: "Slob", probability : 20}];
     genePool = [];
+    optionArray = [];
     let offspring = {
-        traitList: []
+        traitList: [{
+            phenotype: "",
+            genotype: ""
+        },
+        {
+            phenotype: "",
+            genotype: ""
+        },
+        {
+            phenotype: "",
+            genotype: ""
+        }]
     };
     let offspringTraits = new Set();
 
@@ -71,7 +83,19 @@ function makeSim(sim1, sim2){
     while(offspringTraits.size<3)
         offspringTraits.add(optionArray[Math.floor(Math.random()*optionArray.length)]);
 
-    offspring.traitList = Array.from(offspringTraits);
+    for(let i=0; i<3;i++)
+        offspring.traitList[i].phenotype = Array.from(offspringTraits)[i];
+
+    for(let i =0; i<offspring.traitList.length;i++){
+        for(let j=0;j<genePool.length;j++){
+            if(offspring.traitList[i].phenotype===genePool[j].name)
+                offspring.traitList[i].genotype+=genePool[j].allele;
+        }
+        while(offspring.traitList[i].genotype.length<2)
+            offspring.traitList[i].genotype+="Aa"[Math.round(Math.random())];
+    }
+
+
     return offspring;
 };
 
