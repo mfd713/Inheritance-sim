@@ -1,4 +1,4 @@
-let Fiona = {
+let fiona = {
     traitList: [{
         phenotype : "Slob",
         genotype : "Aa"
@@ -11,7 +11,7 @@ let Fiona = {
     }]
 };
 
-let Shrek = { 
+let shrek = { 
     traitList: [{
         phenotype : "Slob",
         genotype : "Aa"
