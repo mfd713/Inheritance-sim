@@ -3,7 +3,7 @@ let Fiona = {
         phenotype : "Slob",
         genotype : "Aa"
     },{
-        phenotype : "Athletic",
+        phenotype : "Active",
         genotype : "Aa"
     },{
         phenotype : "Music Lover",
@@ -30,10 +30,30 @@ let genePool =[];
 let optionArray = [];
 
 function makeSim(sim1, sim2){
-    options = [{name: "Athletic", probability: 20}, {name: "Ambitious", probability: 20}, 
-{name: "Cheerful", probability: 20}, {name: "Loner", probability: 20},
-{name : "Music Lover", probability : 20}, {name: "Self-Assured", probability : 20},
-{name: "Slob", probability : 20}];
+    options = [{name: "Active", probability: 15}, {name: "Cheerful", probability: 15}, 
+{name: "Gloomy", probability: 15}, {name: "Genius", probability: 15},
+{name : "Goofball", probability : 15}, {name: "Hot-Headed", probability : 15},
+{name: "Romantic", probability : 15}, {name: "Self-Assured", probability : 15},
+{name: "Unflirty", probability : 15}, {name: "Art Lover", probability : 15},
+{name: "Book Worm", probability : 15}, {name: "Foodie", probability : 15},
+{name: "Geek", probability : 15}, {name: "Music Lover", probability : 15},
+{name: "Perfectionist", probability : 15},{name: "Ambitoius", probability : 15},
+{name: "Cat Lover", probability : 15},{name: "Child of the Islands", probability : 15},
+{name: "Child of the Oceans", probability : 15}, {name: "Childish", probability : 15},
+{name: "Clumsy", probability : 15},{name: "Dance Machine", probability : 15},
+{name: "Dog Lover", probability : 15},{name: "Erratic", probability : 15},
+{name: "Glutton", probability : 15}, {name: "Kleptomaniac", probability : 15},
+{name: "Lazy", probability : 15},{name: "Loves Outdors", probability : 15},
+{name: "Materialistic", probability : 15},{name: "Neat", probability : 15},
+{name: "Slob", probability : 15},{name: "Snob", probability : 15},
+{name: "Squeamish", probability : 15},{name: "Vegetarian", probability : 15},
+{name: "Bro", probability : 15}, {name: "Evil", probability : 15},
+{name: "Family-Oriented", probability : 15},{name: "Good", probability : 15},
+{name: "Hates Children", probability : 15},{name: "Insider", probability : 15},
+{name: "Jealous", probability : 15},{name: "Loner", probability : 15},
+{name: "Mean", probability : 15},{name: "Noncommittal", probability : 15},
+{name: "Outgoing", probability : 15},{name: "Paranoid", probability : 15},
+{name: "Self-Absorbed", probability : 15}];
     genePool = [];
     optionArray = [];
     let offspring = {
