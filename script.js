@@ -37,7 +37,7 @@ function makeSim(sim1, sim2){
 {name: "Unflirty", probability : 15}, {name: "Art Lover", probability : 15},
 {name: "Book Worm", probability : 15}, {name: "Foodie", probability : 15},
 {name: "Geek", probability : 15}, {name: "Music Lover", probability : 15},
-{name: "Perfectionist", probability : 15},{name: "Ambitoius", probability : 15},
+{name: "Perfectionist", probability : 15},{name: "Ambitious", probability : 15},
 {name: "Cat Lover", probability : 15},{name: "Child of the Islands", probability : 15},
 {name: "Child of the Oceans", probability : 15}, {name: "Childish", probability : 15},
 {name: "Clumsy", probability : 15},{name: "Dance Machine", probability : 15},
