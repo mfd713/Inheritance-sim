@@ -53,7 +53,7 @@ function makeSim(sim1, sim2){
 {name: "Jealous", probability : 15},{name: "Loner", probability : 15},
 {name: "Mean", probability : 15},{name: "Noncommittal", probability : 15},
 {name: "Outgoing", probability : 15},{name: "Paranoid", probability : 15},
-{name: "Self-Absorbed", probability : 15}];
+{name: "Self-Absorbed", probability : 15},{name: "Creative", probability : 15}];
     genePool = [];
     optionArray = [];
     let offspring = {
