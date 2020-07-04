@@ -155,5 +155,5 @@ function displayGeneration(){
     document.getElementById("result").innerText = 
     `Trait 1: ${sim.traitList[0].phenotype}
     Trait 2: ${sim.traitList[1].phenotype}
-    Trait 3: ${sim.traitList[2].phenotype}`
+    Trait 3: ${sim.traitList[2].phenotype}`;
 }
