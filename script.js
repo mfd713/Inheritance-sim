@@ -123,5 +123,37 @@ function getGamete(trait){
     return {
         name : trait.phenotype,
         allele : trait.genotype[Math.round(Math.random())]
-    }
+    };
+};
+//parses the inputs from the webpage
+//returns an array of sims
+function parseInputs(){
+    let s1t1 = document.getElementsByTagName("option")
+    [document.getElementById("sim1trait1").selectedIndex].value;
+    let s1t2 = document.getElementsByTagName("option")
+    [document.getElementById("sim1trait2").selectedIndex].value;
+    let s1t3 = document.getElementsByTagName("option")
+    [document.getElementById("sim1trait3").selectedIndex].value;
+    let s2t1 = document.getElementsByTagName("option")
+    [document.getElementById("sim2trait1").selectedIndex].value;
+    let s2t2 = document.getElementsByTagName("option")
+    [document.getElementById("sim2trait2").selectedIndex].value;
+    let s2t3 = document.getElementsByTagName("option")
+    [document.getElementById("sim2trait3").selectedIndex].value;
+
+    let sim1 ={traitList:[{phenotype: s1t1, genotype: "Aa"},
+    {phenotype: s1t2, genotype: "Aa"},{phenotype: s1t3, genotype: "Aa"}]};
+    let sim2 ={traitList:[{phenotype: s2t1, genotype: "Aa"},
+    {phenotype: s2t2, genotype: "Aa"},{phenotype: s2t3, genotype: "Aa"}]};
+
+    return [sim1, sim2];
+}
+
+function displayGeneration(){
+    let x = parseInputs();
+    let sim = makeSim(x[0], x[1]);
+    document.getElementById("result").innerText = 
+    `Trait 1: ${sim.traitList[0].phenotype}
+    Trait 2: ${sim.traitList[1].phenotype}
+    Trait 3: ${sim.traitList[2].phenotype}`
 }
