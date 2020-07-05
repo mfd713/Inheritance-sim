@@ -153,7 +153,7 @@ function displayGeneration(){
     let x = parseInputs();
     let sim = makeSim(x[0], x[1]);
     document.getElementById("result").innerText = 
-    `Trait 1: ${sim.traitList[0].phenotype}
-    Trait 2: ${sim.traitList[1].phenotype}
-    Trait 3: ${sim.traitList[2].phenotype}`;
+    `Trait 1: ${sim.traitList[0].phenotype}, ${sim.traitList[0].genotype}
+    Trait 2: ${sim.traitList[1].phenotype}, ${sim.traitList[1].genotype}
+    Trait 3: ${sim.traitList[2].phenotype}, ${sim.traitList[2].genotype}`;
 }
