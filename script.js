@@ -157,3 +157,6 @@ function displayGeneration(){
     Trait 2: ${sim.traitList[1].phenotype}, ${sim.traitList[1].genotype}
     Trait 3: ${sim.traitList[2].phenotype}, ${sim.traitList[2].genotype}`;
 }
+
+let btn = document.querySelector('button');
+btn.addEventListener('click', displayGeneration);
