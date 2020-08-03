@@ -1,3 +1,4 @@
+//fiona and shrek are 2 built-in sims. Good for testing
 let fiona = {
     traitList: [{
         phenotype : "Slob",
@@ -72,12 +73,15 @@ function makeSim(sim1, sim2){
     };
     let offspringTraits = new Set();
 
+    //these two 'for' calls create a collection of alleles
     for(let i =0;i<3;i++){
         genePool.push(getGamete(sim1.traitList[i]));
     }
     for(let i =0;i<3;i++){
         genePool.push(getGamete(sim2.traitList[i]));
     }
+
+    //adjusts the probability of each trait depending on the gene pool. Dominant alleles have a stronger impact on trait probabilities
     for(let i =0; i<genePool.length; i++){
         for(let j =0; j<options.length;j++)
         {
@@ -96,21 +100,29 @@ function makeSim(sim1, sim2){
         }
     }
 
+    //Fills an array based on the relative probablities of each trait
     for(let i = 0; i<options.length; i++){
         for(let j=0; j<options[i].probability; j++)
             optionArray.push(options[i].name);
     }
+
+    //randomly selects traits from the array of options
+    //offsrpingTraits is a Set so that only 1 of each trait is added
     while(offspringTraits.size<3)
         offspringTraits.add(optionArray[Math.floor(Math.random()*optionArray.length)]);
 
+    //transforms the Set into an array and assigns it to the offspring object
     for(let i=0; i<3;i++)
         offspring.traitList[i].phenotype = Array.from(offspringTraits)[i];
 
+    //this loop assigns a genotype to the new sim
     for(let i =0; i<offspring.traitList.length;i++){
         for(let j=0;j<genePool.length;j++){
+            //if one or both of the parents have the trait, then the offsping will take alleles from the parents gave
             if(offspring.traitList[i].phenotype===genePool[j].name)
                 offspring.traitList[i].genotype+=genePool[j].allele;
         }
+        //if the offspring's allele's aren't filled, randomly fills them with either a dominant or recessive allele
         while(offspring.traitList[i].genotype.length<2)
             offspring.traitList[i].genotype+="Aa"[Math.round(Math.random())];
     }
@@ -119,6 +131,10 @@ function makeSim(sim1, sim2){
     return offspring;
 };
 
+//creates a gamete based on a sim's trait
+//gametes object: {name: "traitName" allele: "A"}
+//name is the name of a trait
+//allele is a char, A or a. 'A' represents a dominant allele, 'a' represents a recessive allele
 function getGamete(trait){
     return {
         name : trait.phenotype,
