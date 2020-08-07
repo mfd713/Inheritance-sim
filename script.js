@@ -118,11 +118,11 @@ function makeSim(sim1, sim2){
     //this loop assigns a genotype to the new sim
     for(let i =0; i<offspring.traitList.length;i++){
         for(let j=0;j<genePool.length;j++){
-            //if one or both of the parents have the trait, then the offsping will take alleles from the parents gave
+            //if one or both of the parents have the trait, then the offsping will take allele(s) the parent(s) gave
             if(offspring.traitList[i].phenotype===genePool[j].name)
                 offspring.traitList[i].genotype+=genePool[j].allele;
         }
-        //if the offspring's allele's aren't filled, randomly fills them with either a dominant or recessive allele
+        //if the offspring's alleles aren't filled, randomly fills them with either a dominant or recessive allele
         while(offspring.traitList[i].genotype.length<2)
             offspring.traitList[i].genotype+="Aa"[Math.round(Math.random())];
     }
@@ -142,7 +142,7 @@ function getGamete(trait){
     };
 };
 //parses the inputs from the webpage
-//returns an array of sims
+//returns an array of 2 sims
 function parseInputs(){
     let s1t1 = document.getElementsByTagName("option")
     [document.getElementById("sim1trait1").selectedIndex].value;
