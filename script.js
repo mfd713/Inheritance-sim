@@ -74,11 +74,13 @@ function makeSim(sim1, sim2){
     let offspringTraits = new Set();
 
     //these two 'for' calls create a collection of alleles
-    for(let i =0;i<3;i++){
-        genePool.push(getGamete(sim1.traitList[i]));
+
+    for (let trait of sim1.traitList){
+        genePool.push(getGamete(trait));
     }
-    for(let i =0;i<3;i++){
-        genePool.push(getGamete(sim2.traitList[i]));
+
+    for (let trait of sim2.traitList){
+        genePool.push(getGamete(trait));
     }
 
     //adjusts the probability of each trait depending on the gene pool. Dominant alleles have a stronger impact on trait probabilities
