@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav></nav>
@@ -15,8 +15,10 @@
             <p>Welcome! This is a tool for randomly generating sims traits, 
                 while also allowing for a little &quot;genetic&quot; influence based
             on the parents&apos; traits.</p>
-            <p>To use, simply use the form below to enter the parents&apos; traits,
-                hit the button, and see a whole new sim come to life.
+            <p>Use the form below to enter the parents&apos; traits. You can
+                choose a genotype to determine the strength of heritability, or
+                plug in the genotypes of previously-generated parents. Click the
+                button and see a whole new sim come to life!
             </p>
             <h4>Sim 1 Traits</h4>
             <form>
@@ -70,7 +72,14 @@
                     <option value="Squeamish">Squeamish</option>
                     <option value="Unflirty">Unflirty</option>
                     <option value="Vegetarian">Vegetarian</option>
-                </select><br>
+                </select>
+                <input type="radio" id="s1t1AA" name="s1t1Genes" value="AA">
+                <label for="s1t1AA" class="radioLabel">AA</label>
+                <input type="radio" id="s1t1Aa" name="s1t1Genes" value="Aa">
+                <label for="s1t1Aa" class="radioLabel">Aa (or unknown)</label>
+                <input type="radio" id="s1t1aa" name="s1t1Genes" value="aa">
+                <label for="s1t1aa" class="radioLabel">aa</label>
+                <br>
                 <label for="sim1trait2">Second Trait</label>
                 <select name="sim1trait2" id="sim1trait2">
                     <option value="">Trait 2</option>
@@ -121,7 +130,14 @@
                     <option value="Squeamish">Squeamish</option>
                     <option value="Unflirty">Unflirty</option>
                     <option value="Vegetarian">Vegetarian</option>
-                </select><br>
+                </select>
+                <input type="radio" id="s1t2AA" name="s1t2Genes" value="AA">
+                <label for="s1t2Gene" class="radioLabel">AA</label>
+                <input type="radio" id="s1t2Aa" name="s1t2Genes" value="Aa">
+                <label for="s1t2Aa" class="radioLabel">Aa (or unknown)</label>
+                <input type="radio" id="s1t2aa" name="s1t2Genes" value="aa">
+                <label for="s1t2aa" class="radioLabel">aa</label>
+                <br>
                 <label for="sim1trait3">Third Trait</label>
                 <select name="sim1trait3" id="sim1trait3">
                     <option value="">Trait 3</option>
@@ -173,7 +189,15 @@
                     <option value="Unflirty">Unflirty</option>
                     <option value="Vegetarian">Vegetarian</option>
                 </select>
+                <input type="radio" id="s1t3AA" name="s1t3Genes" value="AA">
+                <label for="s1t3Gene" class="radioLabel">AA</label>
+                <input type="radio" id="s1t3Aa" name="s1t3Genes" value="Aa">
+                <label for="s1t3Aa" class="radioLabel">Aa (or unknown)</label>
+                <input type="radio" id="s1t3aa" name="s1t3Genes" value="aa">
+                <label for="s1t3aa" class="radioLabel">aa</label>
+                <br>
             </form>
+            <br>
             <h4>Sim 2 Traits</h4>
             <form>
                 <label for="sim2trait1">First Trait</label>
@@ -227,6 +251,12 @@
                     <option value="Unflirty">Unflirty</option>
                     <option value="Vegetarian">Vegetarian</option>
                 </select>
+                <input type="radio" id="s2t1AA" name="s2t1Genes" value="AA">
+                <label for="s2t1AA" class="radioLabel">AA</label>
+                <input type="radio" id="s2t1Aa" name="s2t1Genes" value="Aa">
+                <label for="s2t1Aa" class="radioLabel">Aa (or unknown)</label>
+                <input type="radio" id="s2t1aa" name="s2t1Genes" value="aa">
+                <label for="s2t1aa" class="radioLabel">aa</label>
                 <br>
                 <label for="sim2trait2">Second Trait</label>
                 <select name="sim2trait2" id="sim2trait2">
@@ -278,7 +308,14 @@
                     <option value="Squeamish">Squeamish</option>
                     <option value="Unflirty">Unflirty</option>
                     <option value="Vegetarian">Vegetarian</option>
-                </select><br>
+                </select>
+                <input type="radio" id="s2t2AA" name="s2t2Genes" value="AA">
+                <label for="s2t2AA" class="radioLabel">AA</label>
+                <input type="radio" id="s2t2Aa" name="s2t2Genes" value="Aa">
+                <label for="s2t2Aa" class="radioLabel">Aa (or unknown)</label>
+                <input type="radio" id="s2t2aa" name="s2t2Genes" value="aa">
+                <label for="s2t2aa" class="radioLabel">aa</label>
+                <br>
                 <label for="sim2trait3">Third Trait</label>
                 <select name="sim2trait3" id="sim2trait3">
                     <option value="">Trait 3</option>
@@ -330,6 +367,12 @@
                     <option value="Unflirty">Unflirty</option>
                     <option value="Vegetarian">Vegetarian</option>
                 </select>
+                <input type="radio" id="s2t3AA" name="s2t3Genes" value="AA">
+                <label for="s2t3AA" class="radioLabel">AA</label>
+                <input type="radio" id="s2t3Aa" name="s2t3Genes" value="Aa">
+                <label for="s2t3Aa" class="radioLabel">Aa (or unknown)</label>
+                <input type="radio" id="s2t3aa" name="s2t3Genes" value="aa">
+                <label for="s2t3aa" class="radioLabel">aa</label>
                 <br><br>
                 <button type="button">Generate Child</button>
             </form>

@@ -31,30 +31,30 @@ let genePool =[];
 let optionArray = [];
 
 function makeSim(sim1, sim2){
-    options = [{name: "Active", probability: 17}, {name: "Cheerful", probability: 17}, 
-{name: "Gloomy", probability: 17}, {name: "Genius", probability: 17},
-{name : "Goofball", probability : 17}, {name: "Hot-Headed", probability : 17},
-{name: "Romantic", probability : 17}, {name: "Self-Assured", probability : 17},
-{name: "Unflirty", probability : 17}, {name: "Art Lover", probability : 17},
-{name: "Book Worm", probability : 17}, {name: "Foodie", probability : 17},
-{name: "Geek", probability : 17}, {name: "Music Lover", probability : 17},
-{name: "Perfectionist", probability : 17},{name: "Ambitious", probability : 17},
-{name: "Cat Lover", probability : 17},{name: "Child of the Islands", probability : 17},
-{name: "Child of the Oceans", probability : 17}, {name: "Childish", probability : 17},
-{name: "Clumsy", probability : 17},{name: "Dance Machine", probability : 17},
-{name: "Dog Lover", probability : 17},{name: "Erratic", probability : 17},
-{name: "Glutton", probability : 17}, {name: "Kleptomaniac", probability : 17},
-{name: "Lazy", probability : 17},{name: "Loves Outdors", probability : 17},
-{name: "Materialistic", probability : 17},{name: "Neat", probability : 17},
-{name: "Slob", probability : 17},{name: "Snob", probability : 17},
-{name: "Squeamish", probability : 17},{name: "Vegetarian", probability : 17},
-{name: "Bro", probability : 17}, {name: "Evil", probability : 17},
-{name: "Family-Oriented", probability : 17},{name: "Good", probability : 17},
-{name: "Hates Children", probability : 17},{name: "Insider", probability : 17},
-{name: "Jealous", probability : 17},{name: "Loner", probability : 17},
-{name: "Mean", probability : 17},{name: "Noncommittal", probability : 17},
-{name: "Outgoing", probability : 17},{name: "Paranoid", probability : 17},
-{name: "Self-Absorbed", probability : 17},{name: "Creative", probability : 17}];
+    options = [{name: "Active", probability: 19}, {name: "Cheerful", probability: 19}, 
+{name: "Gloomy", probability: 19}, {name: "Genius", probability: 19},
+{name : "Goofball", probability : 19}, {name: "Hot-Headed", probability : 19},
+{name: "Romantic", probability : 19}, {name: "Self-Assured", probability : 19},
+{name: "Unflirty", probability : 19}, {name: "Art Lover", probability : 19},
+{name: "Book Worm", probability : 19}, {name: "Foodie", probability : 19},
+{name: "Geek", probability : 19}, {name: "Music Lover", probability : 19},
+{name: "Perfectionist", probability : 19},{name: "Ambitious", probability : 19},
+{name: "Cat Lover", probability : 19},{name: "Child of the Islands", probability : 19},
+{name: "Child of the Oceans", probability : 19}, {name: "Childish", probability : 19},
+{name: "Clumsy", probability : 19},{name: "Dance Machine", probability : 19},
+{name: "Dog Lover", probability : 19},{name: "Erratic", probability : 19},
+{name: "Glutton", probability : 19}, {name: "Kleptomaniac", probability : 19},
+{name: "Lazy", probability : 19},{name: "Loves Outdors", probability : 19},
+{name: "Materialistic", probability : 19},{name: "Neat", probability : 19},
+{name: "Slob", probability : 19},{name: "Snob", probability : 19},
+{name: "Squeamish", probability : 19},{name: "Vegetarian", probability : 19},
+{name: "Bro", probability : 19}, {name: "Evil", probability : 19},
+{name: "Family-Oriented", probability : 19},{name: "Good", probability : 19},
+{name: "Hates Children", probability : 19},{name: "Insider", probability : 19},
+{name: "Jealous", probability : 19},{name: "Loner", probability : 19},
+{name: "Mean", probability : 19},{name: "Noncommittal", probability : 19},
+{name: "Outgoing", probability : 19},{name: "Paranoid", probability : 19},
+{name: "Self-Absorbed", probability : 19},{name: "Creative", probability : 19}];
     genePool = [];
     optionArray = [];
     let offspring = {
@@ -148,21 +148,32 @@ function getGamete(trait){
 function parseInputs(){
     let s1t1 = document.getElementsByTagName("option")
     [document.getElementById("sim1trait1").selectedIndex].value;
+    let st1t1Genes = getGeneChoice("s1t1Genes");
+
     let s1t2 = document.getElementsByTagName("option")
     [document.getElementById("sim1trait2").selectedIndex].value;
+    let st1t2Genes = getGeneChoice("s1t2Genes");
+
     let s1t3 = document.getElementsByTagName("option")
     [document.getElementById("sim1trait3").selectedIndex].value;
+    let st1t3Genes = getGeneChoice("s1t3Genes");
+
     let s2t1 = document.getElementsByTagName("option")
     [document.getElementById("sim2trait1").selectedIndex].value;
+    let st2t1Genes = getGeneChoice("s2t1Genes");
+
     let s2t2 = document.getElementsByTagName("option")
     [document.getElementById("sim2trait2").selectedIndex].value;
+    let st2t2Genes = getGeneChoice("s2t2Genes");
+
     let s2t3 = document.getElementsByTagName("option")
     [document.getElementById("sim2trait3").selectedIndex].value;
+    let st2t3Genes = getGeneChoice("s2t3Genes");
 
-    let sim1 ={traitList:[{phenotype: s1t1, genotype: "Aa"},
-    {phenotype: s1t2, genotype: "Aa"},{phenotype: s1t3, genotype: "Aa"}]};
-    let sim2 ={traitList:[{phenotype: s2t1, genotype: "Aa"},
-    {phenotype: s2t2, genotype: "Aa"},{phenotype: s2t3, genotype: "Aa"}]};
+    let sim1 ={traitList:[{phenotype: s1t1, genotype: st1t1Genes},
+    {phenotype: s1t2, genotype: st1t2Genes},{phenotype: s1t3, genotype: st1t3Genes}]};
+    let sim2 ={traitList:[{phenotype: s2t1, genotype: st2t1Genes},
+    {phenotype: s2t2, genotype: st2t2Genes},{phenotype: s2t3, genotype: st2t3Genes}]};
 
     return [sim1, sim2];
 }
@@ -174,6 +185,20 @@ function displayGeneration(){
     `Trait 1: ${sim.traitList[0].phenotype}, ${sim.traitList[0].genotype}
     Trait 2: ${sim.traitList[1].phenotype}, ${sim.traitList[1].genotype}
     Trait 3: ${sim.traitList[2].phenotype}, ${sim.traitList[2].genotype}`;
+}
+
+//getGeneChoice will return the value of the chosen gene radio button
+//input: the name of a group of radio buttons a string
+//output: the value of the chosen radio button as a string (AA, aa, or Aa)
+//returns "Aa" if user hasn't made choice.
+function getGeneChoice(eleName){
+    for(let choice of document.getElementsByName(eleName)){
+        if(choice.checked){
+            return choice.value;
+            break;
+        }
+    }
+    return "Aa"; 
 }
 
 let btn = document.querySelector('button');
