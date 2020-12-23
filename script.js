@@ -26,37 +26,93 @@ let shrek = {
 };
 
 
-let options = [];
+let childOptions = [];
+let teenOptions = [];
+let adultOptions = [];
 let genePool =[];
-let optionArray = [];
+let childOptionArray = [];
+let teenOptionArray = [];
+let adultOptionArray = [];
 
 function makeSim(sim1, sim2){
-    options = [{name: "Active", probability: 19}, {name: "Cheerful", probability: 19}, 
-{name: "Gloomy", probability: 19}, {name: "Genius", probability: 19},
-{name : "Goofball", probability : 19}, {name: "Hot-Headed", probability : 19},
-{name: "Romantic", probability : 19}, {name: "Self-Assured", probability : 19},
-{name: "Unflirty", probability : 19}, {name: "Art Lover", probability : 19},
-{name: "Book Worm", probability : 19}, {name: "Foodie", probability : 19},
-{name: "Geek", probability : 19}, {name: "Music Lover", probability : 19},
-{name: "Perfectionist", probability : 19},{name: "Ambitious", probability : 19},
-{name: "Cat Lover", probability : 19},{name: "Child of the Islands", probability : 19},
-{name: "Child of the Oceans", probability : 19}, {name: "Childish", probability : 19},
-{name: "Clumsy", probability : 19},{name: "Dance Machine", probability : 19},
-{name: "Dog Lover", probability : 19},{name: "Erratic", probability : 19},
-{name: "Glutton", probability : 19}, {name: "Kleptomaniac", probability : 19},
-{name: "Lazy", probability : 19},{name: "Loves Outdors", probability : 19},
-{name: "Materialistic", probability : 19},{name: "Neat", probability : 19},
-{name: "Slob", probability : 19},{name: "Snob", probability : 19},
-{name: "Squeamish", probability : 19},{name: "Vegetarian", probability : 19},
-{name: "Bro", probability : 19}, {name: "Evil", probability : 19},
-{name: "Family-Oriented", probability : 19},{name: "Good", probability : 19},
-{name: "Hates Children", probability : 19},{name: "Insider", probability : 19},
-{name: "Jealous", probability : 19},{name: "Loner", probability : 19},
-{name: "Mean", probability : 19},{name: "Noncommittal", probability : 19},
-{name: "Outgoing", probability : 19},{name: "Paranoid", probability : 19},
-{name: "Self-Absorbed", probability : 19},{name: "Creative", probability : 19}];
+    childOptions = [{name: "Active", probability: 19}, {name: "Cheerful", probability: 19}, 
+    {name: "Gloomy", probability: 19}, {name: "Genius", probability: 19},
+    {name : "Goofball", probability : 19}, {name: "Hot-Headed", probability : 19},
+    {name: "Self-Assured", probability : 19}, {name: "Unflirty", probability : 19}, 
+    {name: "Art Lover", probability : 19},
+    {name: "Book Worm", probability : 19}, {name: "Foodie", probability : 19},
+    {name: "Geek", probability : 19}, {name: "Music Lover", probability : 19},
+    {name: "Perfectionist", probability : 19},
+    {name: "Cat Lover", probability : 19},{name: "Child of the Islands", probability : 19},
+    {name: "Child of the Oceans", probability : 19}, {name: "Dance Machine", probability : 19},
+    {name: "Dog Lover", probability : 19},{name: "Erratic", probability : 19},
+    {name: "Glutton", probability : 19}, {name: "Kleptomaniac", probability : 19},
+    {name: "Lazy", probability : 19},{name: "Loves Outdors", probability : 19},
+    {name: "Materialistic", probability : 19},{name: "Neat", probability : 19},
+    {name: "Slob", probability : 19},
+    {name: "Squeamish", probability : 19},{name: "Vegetarian", probability : 19},
+    {name: "Evil", probability : 19}, {name: "Good", probability : 19},
+    {name: "Insider", probability : 19},
+    {name: "Jealous", probability : 19},{name: "Loner", probability : 19},
+    {name: "Mean", probability : 19},
+    {name: "Outgoing", probability : 19},{name: "Paranoid", probability : 19},
+    {name: "Self-Absorbed", probability : 19},{name: "Creative", probability : 19}];
+    
+    teenOptions = [{name: "Active", probability: 19}, {name: "Cheerful", probability: 19}, 
+    {name: "Gloomy", probability: 19}, {name: "Genius", probability: 19},
+    {name : "Goofball", probability : 19}, {name: "Hot-Headed", probability : 19},
+    {name: "Romantic", probability : 19}, {name: "Self-Assured", probability : 19},
+    {name: "Unflirty", probability : 19}, {name: "Art Lover", probability : 19},
+    {name: "Book Worm", probability : 19}, {name: "Foodie", probability : 19},
+    {name: "Geek", probability : 19}, {name: "Music Lover", probability : 19},
+    {name: "Perfectionist", probability : 19},
+    {name: "Cat Lover", probability : 19},{name: "Child of the Islands", probability : 19},
+    {name: "Child of the Oceans", probability : 19}, {name: "Childish", probability : 19},
+    {name: "Clumsy", probability : 19},{name: "Dance Machine", probability : 19},
+    {name: "Dog Lover", probability : 19},{name: "Erratic", probability : 19},
+    {name: "Glutton", probability : 19}, {name: "Kleptomaniac", probability : 19},
+    {name: "Lazy", probability : 19},{name: "Loves Outdors", probability : 19},
+    {name: "Materialistic", probability : 19},{name: "Neat", probability : 19},
+    {name: "Slob", probability : 19},{name: "Snob", probability : 19},
+    {name: "Squeamish", probability : 19},{name: "Vegetarian", probability : 19},
+    {name: "Bro", probability : 19}, {name: "Evil", probability : 19},
+    {name: "Good", probability : 19},
+    {name: "Hates Children", probability : 19},{name: "Insider", probability : 19},
+    {name: "Jealous", probability : 19},{name: "Loner", probability : 19},
+    {name: "Mean", probability : 19},
+    {name: "Outgoing", probability : 19},{name: "Paranoid", probability : 19},
+    {name: "Self-Absorbed", probability : 19},{name: "Creative", probability : 19}];
+
+    adultOptions = [{name: "Active", probability: 19}, {name: "Cheerful", probability: 19}, 
+    {name: "Gloomy", probability: 19}, {name: "Genius", probability: 19},
+    {name : "Goofball", probability : 19}, {name: "Hot-Headed", probability : 19},
+    {name: "Romantic", probability : 19}, {name: "Self-Assured", probability : 19},
+    {name: "Unflirty", probability : 19}, {name: "Art Lover", probability : 19},
+    {name: "Book Worm", probability : 19}, {name: "Foodie", probability : 19},
+    {name: "Geek", probability : 19}, {name: "Music Lover", probability : 19},
+    {name: "Perfectionist", probability : 19},{name: "Ambitious", probability : 19},
+    {name: "Cat Lover", probability : 19},{name: "Child of the Islands", probability : 19},
+    {name: "Child of the Oceans", probability : 19}, {name: "Childish", probability : 19},
+    {name: "Clumsy", probability : 19},{name: "Dance Machine", probability : 19},
+    {name: "Dog Lover", probability : 19},{name: "Erratic", probability : 19},
+    {name: "Glutton", probability : 19}, {name: "Kleptomaniac", probability : 19},
+    {name: "Lazy", probability : 19},{name: "Loves Outdors", probability : 19},
+    {name: "Materialistic", probability : 19},{name: "Neat", probability : 19},
+    {name: "Slob", probability : 19},{name: "Snob", probability : 19},
+    {name: "Squeamish", probability : 19},{name: "Vegetarian", probability : 19},
+    {name: "Bro", probability : 19}, {name: "Evil", probability : 19},
+    {name: "Family-Oriented", probability : 19},{name: "Good", probability : 19},
+    {name: "Hates Children", probability : 19},{name: "Insider", probability : 19},
+    {name: "Jealous", probability : 19},{name: "Loner", probability : 19},
+    {name: "Mean", probability : 19},{name: "Noncommittal", probability : 19},
+    {name: "Outgoing", probability : 19},{name: "Paranoid", probability : 19},
+    {name: "Self-Absorbed", probability : 19},{name: "Creative", probability : 19}];
+    
     genePool = [];
-    optionArray = [];
+    childOptionArray = [];
+    teenOptionArray = [];
+    adultOptionArray = [];
+
     let offspring = {
         traitList: [{
             phenotype: "",
@@ -83,35 +139,20 @@ function makeSim(sim1, sim2){
         genePool.push(getGamete(trait));
     }
 
-    //adjusts the probability of each trait depending on the gene pool. Dominant alleles have a stronger impact on trait probabilities
-    for(let i =0; i<genePool.length; i++){
-        for(let j =0; j<options.length;j++)
-        {
-            if(genePool[i].name===options[j].name && genePool[i].allele==="A"){
-                options[j].probability+=3;
-            }
-            if(genePool[i].name===options[j].name && genePool[i].allele==="a"){
-                options[j].probability+=2;
-            }
-            if(genePool[i].name!==options[j].name && genePool[i].allele==="A"){
-                options[j].probability-=3;
-            }
-            if(genePool[i].name!==options[j].name && genePool[i].allele==="a"){
-                options[j].probability-=2;
-            }
-        }
-    }
+    setProbability(childOptions, genePool);
+    setProbability(teenOptions, genePool);
+    setProbability(adultOptions, genePool);
 
-    //Fills an array based on the relative probablities of each trait
-    for(let i = 0; i<options.length; i++){
-        for(let j=0; j<options[i].probability; j++)
-            optionArray.push(options[i].name);
-    }
+    populateOptionArray(childOptions, childOptionArray);
+    populateOptionArray(teenOptions, teenOptionArray);
+    populateOptionArray(adultOptions, adultOptionArray);
 
-    //randomly selects traits from the array of options
     //offsrpingTraits is a Set so that only 1 of each trait is added
+    offspringTraits.add(childOptionArray[Math.floor(Math.random()*childOptionArray.length)]);
+    while(offspringTraits.size<2)
+        offspringTraits.add(teenOptionArray[Math.floor(Math.random()*teenOptionArray.length)]);
     while(offspringTraits.size<3)
-        offspringTraits.add(optionArray[Math.floor(Math.random()*optionArray.length)]);
+        offspringTraits.add(adultOptionArray[Math.floor(Math.random()*adultOptionArray.length)]);
 
     //transforms the Set into an array and assigns it to the offspring object
     for(let i=0; i<3;i++)
@@ -182,9 +223,9 @@ function displayGeneration(){
     let x = parseInputs();
     let sim = makeSim(x[0], x[1]);
     document.getElementById("result").innerText = 
-    `Trait 1: ${sim.traitList[0].phenotype}, ${sim.traitList[0].genotype}
-    Trait 2: ${sim.traitList[1].phenotype}, ${sim.traitList[1].genotype}
-    Trait 3: ${sim.traitList[2].phenotype}, ${sim.traitList[2].genotype}`;
+    `Child Trait: ${sim.traitList[0].phenotype}, ${sim.traitList[0].genotype}
+    Teen Trait: ${sim.traitList[1].phenotype}, ${sim.traitList[1].genotype}
+    Adult Trait: ${sim.traitList[2].phenotype}, ${sim.traitList[2].genotype}`;
 }
 
 //getGeneChoice will return the value of the chosen gene radio button
@@ -201,5 +242,33 @@ function getGeneChoice(eleName){
     return "Aa"; 
 }
 
+//adjusts the probability of each trait depending on the gene pool. Dominant alleles have a stronger impact on trait probabilities
+function setProbability(options, geneArray){
+    for(let i =0; i<geneArray.length; i++){
+        for(let j =0; j<options.length;j++)
+        {
+            if(geneArray[i].name===options[j].name && geneArray[i].allele==="A"){
+                options[j].probability+=3;
+            }
+            if(geneArray[i].name===options[j].name && geneArray[i].allele==="a"){
+                options[j].probability+=2;
+            }
+            if(geneArray[i].name!==options[j].name && geneArray[i].allele==="A"){
+                options[j].probability-=3;
+            }
+            if(geneArray[i].name!==options[j].name && geneArray[i].allele==="a"){
+                options[j].probability-=2;
+            }
+        }
+    }
+}
+
+//Fills an array based on the relative probablities of each trait
+function populateOptionArray(options, optionArray){
+    for(let i = 0; i<options.length; i++){
+        for(let j=0; j<options[i].probability; j++)
+            optionArray.push(options[i].name);
+    }
+}
 let btn = document.querySelector('button');
 btn.addEventListener('click', displayGeneration);
