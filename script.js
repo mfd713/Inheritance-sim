@@ -33,79 +33,80 @@ let genePool =[];
 let childOptionArray = [];
 let teenOptionArray = [];
 let adultOptionArray = [];
+let spot;
 
 function makeSim(sim1, sim2){
-    childOptions = [{name: "Active", probability: 19}, {name: "Cheerful", probability: 19}, 
-    {name: "Gloomy", probability: 19}, {name: "Genius", probability: 19},
-    {name : "Goofball", probability : 19}, {name: "Hot-Headed", probability : 19},
-    {name: "Self-Assured", probability : 19}, {name: "Unflirty", probability : 19}, 
+    childOptions = [{name: "Active", probability: 19, conflict: ["Lazy"]}, {name: "Cheerful", probability: 19, conflict: ["Gloomy", "Hot-Headed"]}, 
+    {name: "Gloomy", probability: 19, conflict: ["Cheerful", "Hot-Headed"]}, {name: "Genius", probability: 19},
+    {name : "Goofball", probability : 19, conflict: ["Snob"]}, {name: "Hot-Headed", probability : 19, conflict: ["Cheerful", "Gloomy"]},
+    {name: "Self-Assured", probability : 19}, {name: "Unflirty", probability : 19, conflict: ["Unflirty"]}, 
     {name: "Art Lover", probability : 19},
-    {name: "Book Worm", probability : 19}, {name: "Foodie", probability : 19},
+    {name: "Book Worm", probability : 19}, {name: "Foodie", probability : 19, conflict: ["Glutton"]},
     {name: "Geek", probability : 19}, {name: "Music Lover", probability : 19},
     {name: "Perfectionist", probability : 19},
     {name: "Cat Lover", probability : 19},{name: "Child of the Islands", probability : 19},
     {name: "Child of the Oceans", probability : 19}, {name: "Dance Machine", probability : 19},
     {name: "Dog Lover", probability : 19},{name: "Erratic", probability : 19},
-    {name: "Glutton", probability : 19}, {name: "Kleptomaniac", probability : 19},
-    {name: "Lazy", probability : 19},{name: "Loves Outdors", probability : 19},
-    {name: "Materialistic", probability : 19},{name: "Neat", probability : 19},
-    {name: "Slob", probability : 19},
-    {name: "Squeamish", probability : 19},{name: "Vegetarian", probability : 19},
-    {name: "Evil", probability : 19}, {name: "Good", probability : 19},
-    {name: "Insider", probability : 19},
-    {name: "Jealous", probability : 19},{name: "Loner", probability : 19},
-    {name: "Mean", probability : 19},
-    {name: "Outgoing", probability : 19},{name: "Paranoid", probability : 19},
+    {name: "Glutton", probability : 19, conflict: ["Foodie", "Squeamish"]}, {name: "Kleptomaniac", probability : 19, conflict: ["Good"]},
+    {name: "Lazy", probability : 19, conflict: ["Active","Ambitious", "Neat"]},{name: "Loves Outdoors", probability : 19, conflict: ["Squeamish"]},
+    {name: "Materialistic", probability : 19},{name: "Neat", probability : 19, conflict: ["Lazy", "Slob"]},
+    {name: "Slob", probability : 19, conflict: ["Neat", "Squeamish"]},
+    {name: "Squeamish", probability : 19, conflict: ["Glutton", "Loves Outdoors", "Slob"]},{name: "Vegetarian", probability : 19},
+    {name: "Evil", probability : 19, conflict: ["Childish", "Good"]}, {name: "Good", probability : 19, conflict: ["Evil", "Kleptomaniac", "Mean"]},
+    {name: "Insider", probability : 19, conflict: ["Loner"]},
+    {name: "Jealous", probability : 19},{name: "Loner", probability : 19, conflict: ["Insider", "Outgoing"]},
+    {name: "Mean", probability : 19, conflict: ["Good"]},
+    {name: "Outgoing", probability : 19, conflict: ["Loner", "Paranoid"]},{name: "Paranoid", probability : 19, conflict: ["Outgoing"]},
     {name: "Self-Absorbed", probability : 19},{name: "Creative", probability : 19}];
     
-    teenOptions = [{name: "Active", probability: 19}, {name: "Cheerful", probability: 19}, 
-    {name: "Gloomy", probability: 19}, {name: "Genius", probability: 19},
-    {name : "Goofball", probability : 19}, {name: "Hot-Headed", probability : 19},
-    {name: "Romantic", probability : 19}, {name: "Self-Assured", probability : 19},
-    {name: "Unflirty", probability : 19}, {name: "Art Lover", probability : 19},
-    {name: "Book Worm", probability : 19}, {name: "Foodie", probability : 19},
+    teenOptions = [{name: "Active", probability: 19, conflict: ["Lazy"]}, {name: "Cheerful", probability: 19, conflict: ["Gloomy", "Hot-Headed"]}, 
+    {name: "Gloomy", probability: 19, conflict: ["Cheerful", "Hot-Headed"]}, {name: "Genius", probability: 19},
+    {name : "Goofball", probability : 19, conflict: ["Snob"]}, {name: "Hot-Headed", probability : 19, conflict: ["Cheerful", "Gloomy"]},
+    {name: "Romantic", probability : 19, conflict: ["Unflirty"]}, {name: "Self-Assured", probability : 19},
+    {name: "Unflirty", probability : 19, conflict: ["Romantic"]}, {name: "Art Lover", probability : 19},
+    {name: "Book Worm", probability : 19}, {name: "Foodie", probability : 19, conflict: ["Glutton"]},
     {name: "Geek", probability : 19}, {name: "Music Lover", probability : 19},
     {name: "Perfectionist", probability : 19},
     {name: "Cat Lover", probability : 19},{name: "Child of the Islands", probability : 19},
-    {name: "Child of the Oceans", probability : 19}, {name: "Childish", probability : 19},
+    {name: "Child of the Oceans", probability : 19}, {name: "Childish", probability : 19, conflict: ["Evil", "Hates Children", "Snob"]},
     {name: "Clumsy", probability : 19},{name: "Dance Machine", probability : 19},
     {name: "Dog Lover", probability : 19},{name: "Erratic", probability : 19},
-    {name: "Glutton", probability : 19}, {name: "Kleptomaniac", probability : 19},
-    {name: "Lazy", probability : 19},{name: "Loves Outdors", probability : 19},
-    {name: "Materialistic", probability : 19},{name: "Neat", probability : 19},
-    {name: "Slob", probability : 19},{name: "Snob", probability : 19},
-    {name: "Squeamish", probability : 19},{name: "Vegetarian", probability : 19},
-    {name: "Bro", probability : 19}, {name: "Evil", probability : 19},
-    {name: "Good", probability : 19},
-    {name: "Hates Children", probability : 19},{name: "Insider", probability : 19},
-    {name: "Jealous", probability : 19},{name: "Loner", probability : 19},
-    {name: "Mean", probability : 19},
-    {name: "Outgoing", probability : 19},{name: "Paranoid", probability : 19},
+    {name: "Glutton", probability : 19, conflict: ["Foodie", "Squeamish"]}, {name: "Kleptomaniac", probability : 19, conflict: ["Good"]},
+    {name: "Lazy", probability : 19, conflict: ["Active","Ambitious", "Neat"]},{name: "Loves Outdoors", probability : 19, conflict: ["Squeamish"]},
+    {name: "Materialistic", probability : 19},{name: "Neat", probability : 19, conflict: ["Lazy", "Slob"]},
+    {name: "Slob", probability : 19, conflict: ["Neat", "Squeamish"]},{name: "Snob", probability : 19, conflict: ["Childish", "Goofball"]},
+    {name: "Squeamish", probability : 19, conflict: ["Glutton", "Loves Outdoors", "Slob"]},{name: "Vegetarian", probability : 19},
+    {name: "Bro", probability : 19}, {name: "Evil", probability : 19, conflict: ["Childish", "Good"]},
+    {name: "Good", probability : 19, conflict: ["Evil", "Kleptomaniac", "Mean"]},
+    {name: "Hates Children", probability : 19, conflict: ["Childish", "Family-Oriented"]},{name: "Insider", probability : 19, conflict: ["Loner"]},
+    {name: "Jealous", probability : 19},{name: "Loner", probability : 19, conflict: ["Insider", "Outgoing"]},
+    {name: "Mean", probability : 19, conflict: ["Good"]},
+    {name: "Outgoing", probability : 19, conflict: ["Loner", "Paranoid"]},{name: "Paranoid", probability : 19, conflict: ["Outgoing"]},
     {name: "Self-Absorbed", probability : 19},{name: "Creative", probability : 19}];
 
-    adultOptions = [{name: "Active", probability: 19}, {name: "Cheerful", probability: 19}, 
-    {name: "Gloomy", probability: 19}, {name: "Genius", probability: 19},
-    {name : "Goofball", probability : 19}, {name: "Hot-Headed", probability : 19},
-    {name: "Romantic", probability : 19}, {name: "Self-Assured", probability : 19},
-    {name: "Unflirty", probability : 19}, {name: "Art Lover", probability : 19},
-    {name: "Book Worm", probability : 19}, {name: "Foodie", probability : 19},
+    adultOptions = [{name: "Active", probability: 19, conflict: ["Lazy"]}, {name: "Cheerful", probability: 19, conflict: ["Gloomy", "Hot-Headed"]}, 
+    {name: "Gloomy", probability: 19, conflict: ["Cheerful", "Hot-Headed"]}, {name: "Genius", probability: 19},
+    {name : "Goofball", probability : 19, conflict: ["Snob"]}, {name: "Hot-Headed", probability : 19, conflict: ["Cheerful", "Gloomy"]},
+    {name: "Romantic", probability : 19, conflict: ["Unflirty"]}, {name: "Self-Assured", probability : 19},
+    {name: "Unflirty", probability : 19, conflict: ["Unflirty"]}, {name: "Art Lover", probability : 19},
+    {name: "Book Worm", probability : 19}, {name: "Foodie", probability : 19, conflict: ["Glutton"]},
     {name: "Geek", probability : 19}, {name: "Music Lover", probability : 19},
-    {name: "Perfectionist", probability : 19},{name: "Ambitious", probability : 19},
+    {name: "Perfectionist", probability : 19},{name: "Ambitious", probability : 19, conflict: ["Lazy"]},
     {name: "Cat Lover", probability : 19},{name: "Child of the Islands", probability : 19},
-    {name: "Child of the Oceans", probability : 19}, {name: "Childish", probability : 19},
+    {name: "Child of the Oceans", probability : 19}, {name: "Childish", probability : 19, conflict: ["Evil", "Hates Children", "Snob"]},
     {name: "Clumsy", probability : 19},{name: "Dance Machine", probability : 19},
     {name: "Dog Lover", probability : 19},{name: "Erratic", probability : 19},
-    {name: "Glutton", probability : 19}, {name: "Kleptomaniac", probability : 19},
-    {name: "Lazy", probability : 19},{name: "Loves Outdors", probability : 19},
-    {name: "Materialistic", probability : 19},{name: "Neat", probability : 19},
-    {name: "Slob", probability : 19},{name: "Snob", probability : 19},
-    {name: "Squeamish", probability : 19},{name: "Vegetarian", probability : 19},
-    {name: "Bro", probability : 19}, {name: "Evil", probability : 19},
-    {name: "Family-Oriented", probability : 19},{name: "Good", probability : 19},
-    {name: "Hates Children", probability : 19},{name: "Insider", probability : 19},
-    {name: "Jealous", probability : 19},{name: "Loner", probability : 19},
-    {name: "Mean", probability : 19},{name: "Noncommittal", probability : 19},
-    {name: "Outgoing", probability : 19},{name: "Paranoid", probability : 19},
+    {name: "Glutton", probability : 19, conflict: ["Foodie", "Squeamish"]}, {name: "Kleptomaniac", probability : 19, conflict: ["Good"]},
+    {name: "Lazy", probability : 19, conflict: ["Active","Ambitious", "Neat"]},{name: "Loves Outdoors", probability : 19, conflict: ["Squeamish"]},
+    {name: "Materialistic", probability : 19},{name: "Neat", probability : 19, conflict: ["Lazy", "Slob"]},
+    {name: "Slob", probability : 19, conflict: ["Neat", "Squeamish"]},{name: "Snob", probability : 19},
+    {name: "Squeamish", probability : 19, conflict: ["Glutton", "Loves Outdoors", "Slob"]},{name: "Vegetarian", probability : 19},
+    {name: "Bro", probability : 19}, {name: "Evil", probability : 19, conflict: ["Childish", "Good"]},
+    {name: "Family-Oriented", probability : 19, conflict: ["Hates Children", "Noncommittal"]},{name: "Good", probability : 19, conflict: ["Evil", "Kleptomaniac", "Mean"]},
+    {name: "Hates Children", probability : 19, conflict: ["Childish", "Family-Oriented"]},{name: "Insider", probability : 19, conflict: ["Loner"]},
+    {name: "Jealous", probability : 19},{name: "Loner", probability : 19, conflict: ["Insider", "Outgoing"]},
+    {name: "Mean", probability : 19, conflict: ["Good"]},{name: "Noncommittal", probability : 19, conflict: ["Family-Oriented"]},
+    {name: "Outgoing", probability : 19, conflict: ["Loner", "Paranoid"]},{name: "Paranoid", probability : 19, conflict: ["Outgoing"]},
     {name: "Self-Absorbed", probability : 19},{name: "Creative", probability : 19}];
     
     genePool = [];
@@ -147,12 +148,31 @@ function makeSim(sim1, sim2){
     populateOptionArray(teenOptions, teenOptionArray);
     populateOptionArray(adultOptions, adultOptionArray);
 
+    spot=Math.floor(Math.random()*childOptionArray.length);
+    let conflictTraits = new Set();
     //offsrpingTraits is a Set so that only 1 of each trait is added
-    offspringTraits.add(childOptionArray[Math.floor(Math.random()*childOptionArray.length)]);
-    while(offspringTraits.size<2)
-        offspringTraits.add(teenOptionArray[Math.floor(Math.random()*teenOptionArray.length)]);
-    while(offspringTraits.size<3)
-        offspringTraits.add(adultOptionArray[Math.floor(Math.random()*adultOptionArray.length)]);
+    offspringTraits.add(childOptionArray[spot].name);
+
+    if (childOptionArray[spot].conflict){
+        for (let i of childOptionArray[spot].conflict)
+            conflictTraits.add(i);
+    }
+    while(offspringTraits.size<2){
+        spot = Math.floor(Math.random()*teenOptionArray.length);
+        if(!conflictTraits.has(teenOptionArray[spot].name)){
+            offspringTraits.add(teenOptionArray[spot].name);
+            if (teenOptionArray[spot].conflict){
+                for (let i of teenOptionArray[spot].conflict)
+                    conflictTraits.add(i);
+                }
+            }   
+        }        
+    while(offspringTraits.size<3){
+        spot = Math.floor(Math.random()*adultOptionArray.length);
+        if(!conflictTraits.has(adultOptionArray[spot].name)){
+            offspringTraits.add(adultOptionArray[spot].name);
+        }
+    }
 
     //transforms the Set into an array and assigns it to the offspring object
     for(let i=0; i<3;i++)
@@ -267,7 +287,7 @@ function setProbability(options, geneArray){
 function populateOptionArray(options, optionArray){
     for(let i = 0; i<options.length; i++){
         for(let j=0; j<options[i].probability; j++)
-            optionArray.push(options[i].name);
+            optionArray.push(options[i]);
     }
 }
 let btn = document.querySelector('button');
